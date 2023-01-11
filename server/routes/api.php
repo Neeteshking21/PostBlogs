@@ -16,9 +16,9 @@ use App\Http\Controllers\ArticalController;
 |
 */
 
-// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
+Route::middleware(['auth', 'cors'])->group(function (){
+    Route::post('/createArticals', [ArticalController::class, 'createArticals']);
+});
 
 Route::controller(UsersController::class)->group(function () {
     Route::post('/login', 'login');
@@ -27,7 +27,7 @@ Route::controller(UsersController::class)->group(function () {
 });
 Route::controller(ArticalController::class)->group(function () {
     Route::get('/getArticals', 'getAllArticals');
-    Route::get('/createArticals', 'createArticals');
-    Route::get('/updateArticals', 'updateArticals');
-    Route::get('/deleteArticals', 'deleteArticals');
+    // Route::post('/createArticals', 'createArticals');
+    Route::post('/updateArticals', 'updateArticals');
+    Route::post('/deleteArticals', 'deleteArticals');
 });

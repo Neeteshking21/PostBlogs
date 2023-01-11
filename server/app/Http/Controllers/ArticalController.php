@@ -11,7 +11,7 @@ class ArticalController extends Controller
     //
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware(['auth']);
     }
 
     public function getAllArticals(Request $request)
@@ -34,14 +34,16 @@ class ArticalController extends Controller
         try{
             $author_id = Auth::User()->id;
             $artical = new artical;
-            $artical->author = $request->author_id;
+            $artical->author = $author_id;
             $artical->title = $request->title;
-            $artical->body = $request->body;
+            $artical->body = $request->content;
+            $artical->slug = $request->slug;
             $db_response = $artical->save();
             $response = array("status" => "success", "message" => "Created Sucessfully.", "data"=> $db_response);
             return response()->json($response);
         }
         catch(\Exception $e){
+            dd($e);
             $response = array("status" => "failed", "message" => $e->getMessage());
             return response()->json($response);
         }

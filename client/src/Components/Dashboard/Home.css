@@ -1,0 +1,35 @@
+#component-dashboard-home-main 
+{
+    background-color: #6a62d2;
+    height: 96.3vh;
+    width: 100vw;
+    overflow-y: scroll;
+}
+
+.components-dashboard-createBox-main .card {
+    width: 18rem;
+    height: 24 !important;
+    margin-top: 12px !important;
+    margin-left: 36vw !important;
+}
+
+.component-dashboard-articals-main{
+    width:98vw;
+    height:51.5vh;
+    margin-top: 10px !important;
+    overflow-y: scroll;
+}
+
+.component-dashboard-articals-main .card
+{
+    width: 18rem;
+    height: 24 !important;
+    margin-top: 12px !important;
+    margin-left: 100px !important;
+}
+
+.card-content
+{
+    height: 185px;
+    overflow-y: scroll;
+}
